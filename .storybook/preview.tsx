@@ -31,7 +31,7 @@ export const preview: Preview = {
             style={{
               padding: "1rem",
               minHeight: "100vh",
-              background: mode === "dark" ? "#121212" : "#ffffff",
+              background: mode === "dark" ? "#000000" : "#ffffff",
             }}
           >
             <Story />
