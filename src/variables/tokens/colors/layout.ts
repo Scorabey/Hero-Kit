@@ -1,68 +1,40 @@
 import primitives from "../../primitives";
 
 export const layout = {
-  "foreground-900": {
-    light: primitives.colors.colors.common.zinc[900],
-    dark: primitives.colors.colors.common.zinc[50],
+  light: {
+    "foreground-900": primitives.colors.colors.common.zinc[900],
+    "foreground-800": primitives.colors.colors.common.zinc[800],
+    "foreground-700": primitives.colors.colors.common.zinc[700],
+    "foreground-600": primitives.colors.colors.common.zinc[600],
+    "foreground-500": primitives.colors.colors.common.zinc[500],
+    "foreground-400": primitives.colors.colors.common.zinc[400],
+    "foreground-300": primitives.colors.colors.common.zinc[300],
+    "foreground-200": primitives.colors.colors.common.zinc[200],
+    "foreground-100": primitives.colors.colors.common.zinc[100],
+    "foreground-50": primitives.colors.colors.common.zinc[50],
+    overlay: "rgba(0, 0, 0, 0.3)",
+    focus: primitives.colors.colors.common.blue[500],
+    "focus-op-20": "rgba(0, 111, 238, 0.2)",
+    divider: "rgba(17, 17, 17, 0.15)",
+    foreground: "#11181C",
+    background: primitives.colors.colors.common.white,
   },
-  "foreground-800": {
-    light: primitives.colors.colors.common.zinc[800],
-    dark: primitives.colors.colors.common.zinc[100],
-  },
-  "foreground-700": {
-    light: primitives.colors.colors.common.zinc[700],
-    dark: primitives.colors.colors.common.zinc[200],
-  },
-  "foreground-600": {
-    light: primitives.colors.colors.common.zinc[600],
-    dark: primitives.colors.colors.common.zinc[300],
-  },
-  "foreground-500": {
-    light: primitives.colors.colors.common.zinc[500],
-    dark: primitives.colors.colors.common.zinc[400],
-  },
-  "foreground-400": {
-    light: primitives.colors.colors.common.zinc[400],
-    dark: primitives.colors.colors.common.zinc[500],
-  },
-  "foreground-300": {
-    light: primitives.colors.colors.common.zinc[300],
-    dark: primitives.colors.colors.common.zinc[600],
-  },
-  "foreground-200": {
-    light: primitives.colors.colors.common.zinc[200],
-    dark: primitives.colors.colors.common.zinc[700],
-  },
-  "foreground-100": {
-    light: primitives.colors.colors.common.zinc[100],
-    dark: primitives.colors.colors.common.zinc[800],
-  },
-  "foreground-50": {
-    light: primitives.colors.colors.common.zinc[50],
-    dark: primitives.colors.colors.common.zinc[900],
-  },
-  overlay: {
-    light: "rgba(0, 0, 0, 0.3)",
-    dark: "rgba(0, 0, 0, 0.3)",
-  },
-  focus: {
-    light: primitives.colors.colors.common.blue[500],
-    dark: primitives.colors.colors.common.blue[500],
-  },
-  "focus-op-20": {
-    light: "rgba(0, 111, 238, 0.2)",
-    dark: "rgba(0, 111, 238, 0.2)",
-  },
-  divider: {
-    light: "rgba(17, 17, 17, 0.15)",
-    dark: "rgba(255, 255, 255, 0.15)",
-  },
-  foreground: {
-    light: "#11181C",
-    dark: "#ECEDEE",
-  },
-  background: {
-    light: primitives.colors.colors.common.white,
-    dark: primitives.colors.colors.common.black,
+  dark: {
+    "foreground-900": primitives.colors.colors.common.zinc[50],
+    "foreground-800": primitives.colors.colors.common.zinc[100],
+    "foreground-700": primitives.colors.colors.common.zinc[200],
+    "foreground-600": primitives.colors.colors.common.zinc[300],
+    "foreground-500": primitives.colors.colors.common.zinc[400],
+    "foreground-400": primitives.colors.colors.common.zinc[500],
+    "foreground-300": primitives.colors.colors.common.zinc[600],
+    "foreground-200": primitives.colors.colors.common.zinc[700],
+    "foreground-100": primitives.colors.colors.common.zinc[800],
+    "foreground-50": primitives.colors.colors.common.zinc[900],
+    overlay: "rgba(0, 0, 0, 0.3)",
+    focus: primitives.colors.colors.common.blue[500],
+    "focus-op-20": "rgba(0, 111, 238, 0.2)",
+    divider: "rgba(255, 255, 255, 0.15)",
+    foreground: "#ECEDEE",
+    background: primitives.colors.colors.common.black,
   },
 };

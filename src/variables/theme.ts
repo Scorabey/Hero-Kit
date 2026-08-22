@@ -10,14 +10,13 @@ import { radius } from "./tokens/layout/radius";
 import { shadow } from "./tokens/shadow/shadow";
 import { text } from "./tokens/typography/text";
 
-export const theme = {
+export const rawTheme = {
   colors: {
     base,
     content,
     flat,
     layout,
   },
-  breakpoints,
   layout: {
     borderWidth,
     fontSize,
@@ -26,4 +25,46 @@ export const theme = {
   },
   shadow,
   text,
-};
+  breakpoints,
+} as const;
+
+export type RawThemeType = typeof rawTheme;
+type ColorPair = { light: string; dark: string };
+type ColorGroup = Record<string, string>;
+type ResolveTheme<T> = T extends { light: infer L; dark: infer D }
+  ? L extends ColorGroup
+    ? D extends ColorGroup
+      ? L
+      : never
+    : never
+  : T extends object
+    ? { [K in keyof T]: ResolveTheme<T[K]> }
+    : T;
+
+export type ThemeType = ResolveTheme<RawThemeType>;
+export type ThemeMode = "light" | "dark";
+
+function isColorPair(value: unknown): value is ColorPair {
+  return (
+    typeof value === "object" &&
+    value !== null &&
+    "light" in value &&
+    "dark" in value
+  );
+}
+
+function resolveTheme<T>(node: T, mode: ThemeMode): ResolveTheme<T> {
+  if (isColorPair(node)) return node[mode] as ResolveTheme<T>;
+  if (typeof node === "object" && node !== null) {
+    const result: any = {};
+    for (const key in node)
+      result[key] = resolveTheme((node as any)[key], mode);
+    return result;
+  }
+  return node as ResolveTheme<T>;
+}
+
+export const getTheme = (mode: ThemeMode): ThemeType =>
+  resolveTheme(rawTheme, mode);
+
+export const defaultTheme = getTheme("light");
