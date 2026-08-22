@@ -1,4 +1,4 @@
-import type { HTMLAttributes, ReactNode } from "react";
+import { useId, type InputHTMLAttributes, type ReactNode } from "react";
 import {
   AccordionItem,
   AccordianInput,
@@ -6,18 +6,33 @@ import {
   AccordionWrapper,
   AccordionContent,
 } from "./styles";
+import { Arrow } from "../../icons";
 
-export interface AccordionProps extends HTMLAttributes<HTMLDivElement> {
+export interface AccordionProps extends InputHTMLAttributes<HTMLInputElement> {
   children: ReactNode;
   label: string;
+  description?: string;
   variant?: "default" | "shadow" | "bordered";
 }
 
-export const Accordion = ({ children, label, ...rest }: AccordionProps) => {
+export const Accordion = ({
+  children,
+  label,
+  description,
+  ...rest
+}: AccordionProps) => {
+  const uniqId = useId();
+
   return (
-    <AccordionItem {...rest}>
-      <AccordianInput />
-      <AccordionLabel>{label}</AccordionLabel>
+    <AccordionItem>
+      <AccordianInput type="checkbox" id={uniqId} {...rest} />
+      <AccordionLabel htmlFor={uniqId}>
+        <div>
+          <span>{label}</span>
+          <span>{description}</span>
+        </div>
+        <Arrow />
+      </AccordionLabel>
       <AccordionWrapper>
         <AccordionContent>{children}</AccordionContent>
       </AccordionWrapper>

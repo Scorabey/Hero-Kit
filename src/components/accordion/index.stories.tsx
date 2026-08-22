@@ -11,5 +11,7 @@ export default meta;
 export const Default: StoryObj<typeof Accordion> = {
   args: {
     variant: "default",
+    label: "Title",
+    description: "Press to expand",
   },
 };
