@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import type {AccordianVariant} from "../AccordionList";
 
 export const AccordionWrapper = styled.div`
     display: inline-flex;
@@ -27,18 +28,45 @@ export const AccordionContent = styled.div`
     }}
 `;
 
-export const AccordionItem = styled.div`
-    position: relative;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
-    background-color: transparent;
-    box-sizing: border-box;
-    padding-inline: 8px;
-    width: 436px;
-    height: fit-content;
-    font-family: Inter;
+export const AccordionItem = styled.div<{ $variant: AccordianVariant }>`
+    ${({ theme }) => {
+        return css`
+            position: relative;
+            display: inline-flex;
+            flex-direction: column;
+            justify-content: start;
+            align-items: start;
+            background-color: ${theme.colors.layout.background};
+            box-sizing: border-box;
+            padding-inline: 8px;
+            width: 436px;
+            height: fit-content;
+            font-family: Inter;
+        `
+    }}
+    
+    ${({ $variant, theme }) => {
+        switch ($variant) {
+            case "default":
+                return css`
+                    background-color: ${theme.colors.layout.background};
+                `
+            case "shadow":
+                return css`
+                    background-color: ${theme.colors.content.content1};
+                `
+            case "bordered":
+                return css`
+                    background-color: ${theme.colors.layout.background};
+                `
+            case "splitted":
+                return css`
+                    background-color: ${theme.colors.content.content1};
+                    border-radius: ${theme.layout.radius.rounded_medium}px;
+                    padding-inline: 16px;
+                `
+        }
+    }}
 `;
 
 export const AccordionLabel = styled.label`
