@@ -39,7 +39,7 @@ export const AccordionItem = styled.div<{ $variant: AccordianVariant }>`
             background-color: ${theme.colors.layout.background};
             box-sizing: border-box;
             padding-inline: 8px;
-            width: 436px;
+            width: clamp(240px, 36vw, 520px);
             height: fit-content;
             font-family: Inter;
         `
@@ -116,6 +116,7 @@ export const AccordianInput = styled.input`
     transform: rotate(-90deg);
   }
   &:checked + label + div {
-    max-height: 420px;
+      overflow: scroll;
+      max-height: clamp(120px, 44vh, 640px);
   }
 `;

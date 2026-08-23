@@ -14,11 +14,71 @@ export const Default: StoryObj<typeof AccordionList> = {
         variant: "default",
         children: (variant: AccordianVariant) => (
             <>
-                <Accordion variant={variant} label={"Accordion"} >
-                    Content
+                <Accordion variant={variant} label={"Accordion 1"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Accordion>
-                <Accordion variant={variant} label={"Accordion"} >
-                    Content
+                <Accordion variant={variant} label={"Accordion 2"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 3"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+            </>
+        ),
+    }
+};
+
+export const Shadow: StoryObj<typeof AccordionList> = {
+    args: {
+        variant: "shadow",
+        children: (variant: AccordianVariant) => (
+            <>
+                <Accordion variant={variant} label={"Accordion 1"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 2"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 3"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+            </>
+        ),
+    }
+};
+
+export const Bordered: StoryObj<typeof AccordionList> = {
+    args: {
+        variant: "bordered",
+        children: (variant: AccordianVariant) => (
+            <>
+                <Accordion variant={variant} label={"Accordion 1"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 2"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 3"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+            </>
+        ),
+    }
+};
+
+export const Splitted: StoryObj<typeof AccordionList> = {
+    args: {
+        variant: "splitted",
+        children: (variant: AccordianVariant) => (
+            <>
+                <Accordion variant={variant} label={"Accordion 1"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 2"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </Accordion>
+                <Accordion variant={variant} label={"Accordion 3"} description={"Press to expand"} >
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                 </Accordion>
             </>
         ),
