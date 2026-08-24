@@ -1,4 +1,4 @@
-import type { HTMLAttributes } from "react";
+import { type HTMLAttributes, useState } from "react";
 import {
   AlertSuccess,
   AlertDanger,
@@ -15,21 +15,35 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   message: string;
   color?: AlertColor;
+  radiusSize?: "none" | "sm" | "md" | "lg" | "full";
 }
 
-export const Alert = ({ title, message, color = "default" }: AlertProps) => {
+export const Alert = ({
+  title,
+  message,
+  color = "default",
+  radiusSize = "none",
+}: AlertProps) => {
+  const [isOpen, setIsOpen] = useState(true);
+
+  if (!isOpen) return null;
+
   return (
-    <AlertWrapper $color={color}>
-      <AlertContent>
+    <AlertWrapper $color={color} $radiusSize={radiusSize}>
+      <AlertContent $color={color}>
         <div className="icon-wrapper">
           <AlertIcon color={color} />
         </div>
-        <div>
-          {title}
-          {message}
+        <div className="content">
+          <span className="title">{title}</span>
+          <span className="message">{message}</span>
         </div>
       </AlertContent>
-      <button type="button" aria-controls="accordion-content">
+      <button
+        type="button"
+        aria-controls="accordion-content"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         <AlertClose />
       </button>
     </AlertWrapper>
