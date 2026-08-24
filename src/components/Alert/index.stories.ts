@@ -13,5 +13,6 @@ export const Default: StoryObj<typeof Alert> = {
     title: "Default",
     message: "This is default alert message",
     color: "default",
+    radiusSize: "md",
   },
 };

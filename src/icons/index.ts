@@ -1,7 +1,7 @@
-export { Arrow } from "./AccordionArrow";
+export { Arrow } from "./Accordion";
 
-export { AlertSuccess } from "./Alert/success.tsx";
-export { AlertDanger } from "./Alert/danger.tsx";
-export { AlertWarning } from "./Alert/warning.tsx";
-export { AlertInfo } from "./Alert/info.tsx";
-export { AlertClose } from "./Alert/close.tsx";
+export { AlertSuccess } from "./Alert";
+export { AlertDanger } from "./Alert";
+export { AlertWarning } from "./Alert";
+export { AlertInfo } from "./Alert";
+export { AlertClose } from "./Alert";

@@ -1,5 +1,5 @@
 import styled, { css, keyframes } from "styled-components";
-import type { AlertColor } from "./index.tsx";
+import type { AlertColor, AlertRadiusSize } from "./index.tsx";
 
 const appearance = keyframes`
     from {
@@ -11,17 +11,24 @@ const appearance = keyframes`
 
 export const AlertWrapper = styled.div<{
   $color: AlertColor;
-  $radiusSize: "none" | "sm" | "md" | "lg" | "full";
+  $radiusSize: AlertRadiusSize;
 }>`
-  position: absolute;
+  position: fixed;
   display: inline-flex;
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
+  max-width: clamp(200px, 35vw, 342px);
+  width: 100%;
+  height: auto;
+  min-height: 64px;
+  max-height: 96px;
   padding: 12px;
   gap: 16px;
   top: 30px;
-  left: 40%;
+  left: 50%;
+  translate: -50% 0;
+  overflow-y: auto;
   animation: ${appearance} 0.3s ease-in-out;
 
   button {
@@ -46,16 +53,6 @@ export const AlertWrapper = styled.div<{
 
   ${({ theme, $color }) => {
     switch ($color) {
-      case "default":
-        return css`
-          background-color: ${theme.colors.base.default};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["default-400"]};
-            }
-          }
-        `;
       case "primary":
         return css`
           background-color: ${theme.colors.base["primary-50"]};
@@ -106,6 +103,16 @@ export const AlertWrapper = styled.div<{
             }
           }
         `;
+      default:
+        return css`
+          background-color: ${theme.colors.base.default};
+
+          button {
+            svg {
+              fill: ${theme.colors.base["default-400"]};
+            }
+          }
+        `;
     }
   }}
 
@@ -141,18 +148,29 @@ export const AlertContent = styled.div<{ $color: AlertColor }>`
   gap: 16px;
   justify-content: flex-start;
   align-items: flex-start;
+  overflow: hidden;
 
   .content {
     display: inline-flex;
     flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    min-width: 0;
+    width: 100%;
 
     .title {
+      display: block;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-height: 24px;
       font-size: ${({ theme }) => theme.text.text_medium.fontSize};
       line-height: ${({ theme }) => theme.text.text_medium.lineHeight};
     }
     .message {
+      display: flex;
+      flex-wrap: wrap;
       font-size: ${({ theme }) => theme.text.text_small.fontSize};
       line-height: ${({ theme }) => theme.text.text_small.lineHeight};
     }
@@ -160,22 +178,6 @@ export const AlertContent = styled.div<{ $color: AlertColor }>`
 
   ${({ theme, $color }) => {
     switch ($color) {
-      case "default":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base["default-600"]};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.layout.foreground};
-            }
-            .message {
-              color: ${theme.colors.base["default-600"]};
-            }
-          }
-        `;
       case "primary":
         return css`
           .icon-wrapper {
@@ -253,6 +255,22 @@ export const AlertContent = styled.div<{ $color: AlertColor }>`
             }
             .message {
               color: ${theme.colors.base.danger};
+            }
+          }
+        `;
+      default:
+        return css`
+          .icon-wrapper {
+            svg {
+              fill: ${theme.colors.base["default-600"]};
+            }
+          }
+          .content {
+            .title {
+              color: ${theme.colors.layout.foreground};
+            }
+            .message {
+              color: ${theme.colors.base["default-600"]};
             }
           }
         `;

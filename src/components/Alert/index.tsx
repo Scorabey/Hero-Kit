@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useState } from "react";
+import { type HTMLAttributes, useState, useEffect } from "react";
 import {
   AlertSuccess,
   AlertDanger,
@@ -11,20 +11,36 @@ import { AlertContent, AlertWrapper } from "./styles.ts";
 export type AlertColor =
   "default" | "primary" | "secondary" | "success" | "warning" | "danger";
 
+export type AlertRadiusSize = "none" | "sm" | "md" | "lg" | "full";
+
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   message: string;
+  duration?: number;
   color?: AlertColor;
-  radiusSize?: "none" | "sm" | "md" | "lg" | "full";
+  radiusSize?: AlertRadiusSize;
 }
+
+const MS_COUNT_IN_SECOND = 1000;
 
 export const Alert = ({
   title,
   message,
+  duration,
   color = "default",
   radiusSize = "none",
 }: AlertProps) => {
   const [isOpen, setIsOpen] = useState(true);
+
+  useEffect(() => {
+    if (!isOpen || duration === undefined) return;
+
+    const timerId = setTimeout(() => {
+      setIsOpen(false);
+    }, duration * MS_COUNT_IN_SECOND);
+
+    return () => clearTimeout(timerId);
+  }, [isOpen, duration]);
 
   if (!isOpen) return null;
 
@@ -35,7 +51,9 @@ export const Alert = ({
           <AlertIcon color={color} />
         </div>
         <div className="content">
-          <span className="title">{title}</span>
+          <span className="title" title={title}>
+            {title}
+          </span>
           <span className="message">{message}</span>
         </div>
       </AlertContent>
