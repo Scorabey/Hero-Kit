@@ -54,7 +54,9 @@ export const Alert = ({
           <span className="title" title={title}>
             {title}
           </span>
-          <span className="message">{message}</span>
+          <span className="message" title={message}>
+            {message}
+          </span>
         </div>
       </AlertContent>
       <button

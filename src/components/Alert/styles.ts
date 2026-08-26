@@ -4,10 +4,13 @@ import type { ThemeType } from "../../variables/theme.ts";
 
 const appearance = keyframes`
     from {
+      opacity: 0;
       transform: translateY(-120px);
-    } to {
-        transform: translateY(0);
-      }
+    } 
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
 `;
 
 const ColorVariants = {
@@ -109,10 +112,10 @@ const ColorVariants = {
     }
     .content {
       .title {
-        color: ${theme.colors.base.warning};
+        color: ${theme.colors.base["warning-foreground"]};
       }
       .message {
-        color: ${theme.colors.base.warning};
+        color: ${theme.colors.base["warning-foreground"]};
       }
     }
   `,
@@ -130,10 +133,10 @@ const ColorVariants = {
     }
     .content {
       .title {
-        color: ${theme.colors.base.danger};
+        color: ${theme.colors.base["danger-foreground"]};
       }
       .message {
-        color: ${theme.colors.base.danger};
+        color: ${theme.colors.base["danger-foreground"]};
       }
     }
   `,
@@ -169,12 +172,13 @@ export const AlertWrapper = styled.div<{
   max-width: clamp(200px, 35vw, 342px);
   width: 100%;
   height: auto;
-  min-height: 64px;
+  min-height: fit-content;
   max-height: 96px;
   padding: 12px;
   gap: 16px;
   top: 30px;
   left: 50%;
+  z-index: 9999;
   translate: -50% 0;
   overflow-y: auto;
   animation: ${appearance} 0.3s ease-in-out;
@@ -230,8 +234,11 @@ export const AlertContent = styled.div<{ $color: AlertColor }>`
       line-height: ${({ theme }) => theme.text.text_medium.lineHeight};
     }
     .message {
-      display: flex;
+      display: block;
+      width: 100%;
       flex-wrap: wrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
       font-size: ${({ theme }) => theme.text.text_small.fontSize};
       line-height: ${({ theme }) => theme.text.text_small.lineHeight};
     }
