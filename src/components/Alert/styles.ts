@@ -1,5 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
 import type { AlertColor, AlertRadiusSize } from "./index.tsx";
+import type { ThemeType } from "../../variables/theme.ts";
 
 const appearance = keyframes`
     from {
@@ -8,6 +9,153 @@ const appearance = keyframes`
         transform: translateY(0);
       }
 `;
+
+const ColorVariants = {
+  default: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base.default};
+    button {
+      svg {
+        fill: ${theme.colors.base["default-400"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base["default-600"]};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.layout.foreground};
+      }
+      .message {
+        color: ${theme.colors.base["default-600"]};
+      }
+    }
+  `,
+  primary: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base["primary-50"]};
+    button {
+      svg {
+        fill: ${theme.colors.base["primary-200"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base.primary};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.base.primary};
+      }
+      .message {
+        color: ${theme.colors.base.primary};
+      }
+    }
+  `,
+  secondary: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base["secondary-50"]};
+    button {
+      svg {
+        fill: ${theme.colors.base["secondary-200"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base.secondary};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.base.secondary};
+      }
+      .message {
+        color: ${theme.colors.base.secondary};
+      }
+    }
+  `,
+  success: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base["success-50"]};
+    button {
+      svg {
+        fill: ${theme.colors.base["success-200"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base.success};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.base.success};
+      }
+      .message {
+        color: ${theme.colors.base.success};
+      }
+    }
+  `,
+  warning: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base["warning-50"]};
+    button {
+      svg {
+        fill: ${theme.colors.base["warning-200"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base.warning};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.base.warning};
+      }
+      .message {
+        color: ${theme.colors.base.warning};
+      }
+    }
+  `,
+  danger: (theme: ThemeType) => css`
+    background-color: ${theme.colors.base["danger-50"]};
+    button {
+      svg {
+        fill: ${theme.colors.base["danger-200"]};
+      }
+    }
+    .icon-wrapper {
+      svg {
+        fill: ${theme.colors.base.danger};
+      }
+    }
+    .content {
+      .title {
+        color: ${theme.colors.base.danger};
+      }
+      .message {
+        color: ${theme.colors.base.danger};
+      }
+    }
+  `,
+};
+
+const RadiusVariants = {
+  none: () => css`
+    border-radius: 0;
+  `,
+  sm: (theme: ThemeType) => css`
+    border-radius: ${theme.layout.radius.rounded_medium}px;
+  `,
+  md: () => css`
+    border-radius: 16px;
+  `,
+  lg: () => css`
+    border-radius: 22px;
+  `,
+  full: () => css`
+    border-radius: 9999px;
+  `,
+};
 
 export const AlertWrapper = styled.div<{
   $color: AlertColor;
@@ -50,96 +198,9 @@ export const AlertWrapper = styled.div<{
       }
     }
   }
+  ${({ theme, $color }) => ColorVariants[$color](theme)} // Color style search
 
-  ${({ theme, $color }) => {
-    switch ($color) {
-      case "primary":
-        return css`
-          background-color: ${theme.colors.base["primary-50"]};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["primary-200"]};
-            }
-          }
-        `;
-      case "secondary":
-        return css`
-          background-color: ${theme.colors.base["secondary-50"]};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["secondary-200"]};
-            }
-          }
-        `;
-      case "success":
-        return css`
-          background-color: ${theme.colors.base["success-50"]};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["success-200"]};
-            }
-          }
-        `;
-      case "warning":
-        return css`
-          background-color: ${theme.colors.base["warning-50"]};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["warning-200"]};
-            }
-          }
-        `;
-      case "danger":
-        return css`
-          background-color: ${theme.colors.base["danger-50"]};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["danger-200"]};
-            }
-          }
-        `;
-      default:
-        return css`
-          background-color: ${theme.colors.base.default};
-
-          button {
-            svg {
-              fill: ${theme.colors.base["default-400"]};
-            }
-          }
-        `;
-    }
-  }}
-
-  ${({ theme, $radiusSize }) => {
-    switch ($radiusSize) {
-      case "sm":
-        return css`
-          border-radius: ${theme.layout.radius.rounded_medium}px;
-        `;
-      case "md":
-        return css`
-          border-radius: 16px;
-        `;
-      case "lg":
-        return css`
-          border-radius: 22px;
-        `;
-      case "full":
-        return css`
-          border-radius: 9999px;
-        `;
-      default:
-        return css`
-          border-radius: 0;
-        `;
-    }
-  }}
+  ${({ theme, $radiusSize }) => RadiusVariants[$radiusSize](theme)}
 `;
 
 export const AlertContent = styled.div<{ $color: AlertColor }>`
@@ -175,105 +236,4 @@ export const AlertContent = styled.div<{ $color: AlertColor }>`
       line-height: ${({ theme }) => theme.text.text_small.lineHeight};
     }
   }
-
-  ${({ theme, $color }) => {
-    switch ($color) {
-      case "primary":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base.primary};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.base.primary};
-            }
-            .message {
-              color: ${theme.colors.base.primary};
-            }
-          }
-        `;
-      case "secondary":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base.secondary};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.base.secondary};
-            }
-            .message {
-              color: ${theme.colors.base.secondary};
-            }
-          }
-        `;
-      case "success":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base.success};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.base.success};
-            }
-            .message {
-              color: ${theme.colors.base.success};
-            }
-          }
-        `;
-      case "warning":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base.warning};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.base.warning};
-            }
-            .message {
-              color: ${theme.colors.base.warning};
-            }
-          }
-        `;
-      case "danger":
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base.danger};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.base.danger};
-            }
-            .message {
-              color: ${theme.colors.base.danger};
-            }
-          }
-        `;
-      default:
-        return css`
-          .icon-wrapper {
-            svg {
-              fill: ${theme.colors.base["default-600"]};
-            }
-          }
-          .content {
-            .title {
-              color: ${theme.colors.layout.foreground};
-            }
-            .message {
-              color: ${theme.colors.base["default-600"]};
-            }
-          }
-        `;
-    }
-  }}
 `;
