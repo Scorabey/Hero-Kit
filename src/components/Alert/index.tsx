@@ -1,11 +1,5 @@
 import { type HTMLAttributes, useState, useEffect } from "react";
-import {
-  AlertSuccess,
-  AlertDanger,
-  AlertInfo,
-  AlertWarning,
-  AlertClose,
-} from "../../icons";
+import { AlertClose, AlertIcon } from "../../icons";
 import { AlertContent, AlertWrapper } from "./styles.ts";
 
 export type AlertColor =
@@ -68,17 +62,4 @@ export const Alert = ({
       </button>
     </AlertWrapper>
   );
-};
-
-const AlertIcon = ({ color }: { color: AlertColor }) => {
-  switch (color) {
-    case "success":
-      return <AlertSuccess />;
-    case "warning":
-      return <AlertWarning />;
-    case "danger":
-      return <AlertDanger />;
-    default:
-      return <AlertInfo />;
-  }
 };

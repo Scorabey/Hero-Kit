@@ -5,3 +5,4 @@ export { AlertDanger } from "./Alert";
 export { AlertWarning } from "./Alert";
 export { AlertInfo } from "./Alert";
 export { AlertClose } from "./Alert";
+export { AlertIcon } from "./Alert";
