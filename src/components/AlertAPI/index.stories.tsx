@@ -20,7 +20,7 @@ export const Default: Story = {
             title: "Success",
             message: "User successfully created",
             radiusSize: "md",
-            duration: 4,
+            duration: 4000,
           })
         }
       >
@@ -33,7 +33,7 @@ export const Default: Story = {
             title: "Error",
             message: "Something went wrong",
             radiusSize: "md",
-            duration: 4,
+            duration: 4000,
           })
         }
       >
@@ -46,7 +46,7 @@ export const Default: Story = {
             title: "Warning",
             message: "Downloading file has stopped",
             radiusSize: "md",
-            duration: 4,
+            duration: 4000,
           })
         }
       >

@@ -1,4 +1,4 @@
-import { type HTMLAttributes, useState, useEffect } from "react";
+import { type HTMLAttributes } from "react";
 import { AlertClose, AlertIcon } from "../../icons";
 import { AlertContent, AlertWrapper } from "./styles.ts";
 
@@ -13,30 +13,16 @@ export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   duration?: number;
   color?: AlertColor;
   radiusSize?: AlertRadiusSize;
+  onClose?: () => void;
 }
-
-const MS_COUNT_IN_SECOND = 1000;
 
 export const Alert = ({
   title,
   message,
-  duration,
   color = "default",
   radiusSize = "none",
+    onClose,
 }: AlertProps) => {
-  const [isOpen, setIsOpen] = useState(true);
-
-  useEffect(() => {
-    if (!isOpen || duration === undefined) return;
-
-    const timerId = setTimeout(() => {
-      setIsOpen(false);
-    }, duration * MS_COUNT_IN_SECOND);
-
-    return () => clearTimeout(timerId);
-  }, [isOpen, duration]);
-
-  if (!isOpen) return null;
 
   return (
     <AlertWrapper $color={color} $radiusSize={radiusSize}>
@@ -56,7 +42,7 @@ export const Alert = ({
       <button
         type="button"
         aria-controls="accordion-content"
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onClose}
       >
         <AlertClose />
       </button>

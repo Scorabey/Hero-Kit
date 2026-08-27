@@ -13,20 +13,34 @@ export const AlertContainer = () => {
 
   useEffect(() => {
     return AlertAPI.subscribe((alert) => {
-      setAlerts((prev) => [
-        ...prev,
-        {
-          ...alert,
-          id: crypto.randomUUID(),
-        },
-      ]);
+      const newAlert = {
+        ...alert,
+        id: crypto.randomUUID(),
+      };
+
+      setAlerts((prev) => [...prev, newAlert]);
+
+      if (alert.duration) {
+        setTimeout(() => {
+          setAlerts((prev) =>
+              prev.filter((item) => item.id !== newAlert.id),
+          );
+        }, alert.duration);
+      }
     });
   }, []);
+
+  const handleClose = (id: string) => {
+    setAlerts((prev) => prev.filter((alert) => alert.id !== id));
+  }
 
   return (
     <Wrapper>
       {alerts.map((alert) => (
-        <Alert key={alert.id} {...alert} />
+        <Alert
+            key={alert.id}
+            onClose={() => handleClose(alert.id)}
+            {...alert} />
       ))}
     </Wrapper>
   );

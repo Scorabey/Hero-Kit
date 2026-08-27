@@ -164,7 +164,6 @@ export const AlertWrapper = styled.div<{
   $color: AlertColor;
   $radiusSize: AlertRadiusSize;
 }>`
-  position: fixed;
   display: inline-flex;
   flex-direction: row;
   align-items: flex-start;
@@ -176,10 +175,6 @@ export const AlertWrapper = styled.div<{
   max-height: 96px;
   padding: 12px;
   gap: 16px;
-  top: 30px;
-  left: 50%;
-  z-index: 9999;
-  translate: -50% 0;
   overflow-y: auto;
   animation: ${appearance} 0.3s ease-in-out;
 
