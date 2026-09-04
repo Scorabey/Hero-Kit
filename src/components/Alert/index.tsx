@@ -24,6 +24,13 @@ export const Alert = ({
     onClose,
 }: AlertProps) => {
 
+  /*
+  This is the Alert component,
+  all the styles and variations of the component are located here,
+  it is accessed either directly or through the AlertContainer component,
+  this component itself is not usable, it requires a wrapper and calling logic
+  */
+
   return (
     <AlertWrapper $color={color} $radiusSize={radiusSize}>
       <AlertContent $color={color}>

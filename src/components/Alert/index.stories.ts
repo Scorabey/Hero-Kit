@@ -2,8 +2,9 @@ import { Alert } from "./index";
 import type { Meta, StoryObj } from "@storybook/react-vite";
 
 const meta: Meta<typeof Alert> = {
+  title: "Components/Alert",
   component: Alert,
-  tags: ["autodocs"],
+  // tags: ["autodocs"],
 };
 
 export default meta;

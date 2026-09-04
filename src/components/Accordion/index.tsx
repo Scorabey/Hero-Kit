@@ -25,6 +25,12 @@ export const Accordion = ({
 }: AccordionProps) => {
   const uniqId = useId();
 
+  /*
+  Like the Alert component, this is just a styled component
+  that requires a container to display the Accordion itself as part of a list.
+  For this, there is a separate list component, AccordionList.
+  */
+
   return (
     <AccordionItem {...rest} $variant={variant}>
       <AccordianInput type="checkbox" id={uniqId} />
