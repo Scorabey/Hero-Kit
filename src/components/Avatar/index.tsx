@@ -4,24 +4,21 @@ import {AvatarIcon} from "../../icons/Avatar/Avatar.tsx";
 export interface AvatarProps {
     size?: "sm" | "md" | "lg";
     radius?: "none" | "sm" | "md" | "lg" | "full";
-    variant?: "primary" | "secondary" | "success" | "warning" | "danger" | "default";
-    isBordered?: boolean;
-    src?: string | null;
+    color?: "primary" | "secondary" | "success" | "warning" | "danger" | "default";
+    variant?: "icon" | "image"
+    isBordered?: boolean
+    src?: string;
 }
 
-export const Avatar = ({ size, src = null, variant, radius, isBordered  }: AvatarProps) => {
-    function AvatarContent(src: string | null) {
-        if(!src) {
-            return <AvatarIcon />
-        } else {
-            return <img src={src} alt={"Avatar"} />
-        }
-
-    }
+export const Avatar = ({ size, src, color, radius, variant, isBordered  }: AvatarProps) => {
 
     return (
-        <AvatarWrapper size={size} variant={variant} radius={radius} isBordered={isBordered} src={src}>
-            {AvatarContent(src)}
+        <AvatarWrapper size={size} color={color} radius={radius} variant={variant} isBordered={isBordered}>
+            {
+                variant === "icon"
+                ? <AvatarIcon />
+                : <img src={src} alt={"Avatar"}/>
+            }
         </AvatarWrapper>
     )
 }
