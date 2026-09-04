@@ -20,6 +20,14 @@ export const AccordionList = ({
   variant = "default",
   ...rest
 }: AccordionListProps) => {
+
+  /*
+  This is a list component,
+  it serves as a wrapper for the Accordion component,
+  without it the Accordion will be rendered
+  as a separate component without some of the styles.
+  */
+
   return (
     <AccordionPadding {...rest} $variant={variant}>
       <AccordionWrapper $variant={variant}>
