@@ -11,7 +11,7 @@ export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
     src?: string;
 }
 
-export const Avatar = ({ size, src, color, radius, variant, isBordered, ...rest  }: AvatarProps) => {
+export const Avatar = ({ size = "md", src, color = "default", radius = "md", variant = "icon", isBordered = false, ...rest  }: AvatarProps) => {
 
     return (
         <AvatarWrapper size={size} color={color} radius={radius} variant={variant} isBordered={isBordered} {...rest}>
