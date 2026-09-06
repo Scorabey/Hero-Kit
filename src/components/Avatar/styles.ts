@@ -2,27 +2,34 @@ import styled, { css } from 'styled-components'
 import type { AvatarProps } from "./index.tsx";
 import type {ThemeType} from "../../variables/theme.ts";
 
-const AvatarSize = {
-    sm: css`
+export const AvatarSize = {
+    sm: (theme: ThemeType) => css`
         width: clamp(32px, 2.22vw, 32px);
         height: clamp(32px, 2.22vh, 32px);
         padding: 0.21rem;
+        font-size: ${theme.text.text_tiny.fontSize};
+        line-height: ${theme.text.text_tiny.lineHeight};
     `,
-    md: css`
+    md: (theme: ThemeType) => css`
         width: clamp(40px, 2.78vw, 40px);
         height: clamp(40px, 2.78vh, 40px);
         padding: 0.25rem;
+        font-size: ${theme.text.text_tiny.fontSize};
+        line-height: ${theme.text.text_tiny.lineHeight};
     `,
-    lg: css`
+    lg: (theme: ThemeType) => css`
         width: clamp(56px, 3.89vw, 56px);
         height: clamp(56px, 3.89vh, 56px);
         padding: 0.35rem;
+        font-size: ${theme.text.text_small.fontSize};
+        line-height: ${theme.text.text_small.lineHeight};
     `,
 }
 
-const AvatarColor = {
+export const AvatarColor = {
     primary: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.primary};
+        color: ${theme.colors.base["primary-foreground"]};
         
         svg {
             fill: ${theme.colors.base["primary-foreground"]};
@@ -30,6 +37,7 @@ const AvatarColor = {
     `,
     secondary: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.secondary};
+        color: ${theme.colors.base["secondary-foreground"]};
         
         svg {
             fill: ${theme.colors.base["secondary-foreground"]};
@@ -37,6 +45,7 @@ const AvatarColor = {
     `,
     success: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.success};
+        color: ${theme.colors.base["success-foreground"]};
         
         svg {
             fill: ${theme.colors.base["success-foreground"]};
@@ -44,6 +53,7 @@ const AvatarColor = {
     `,
     warning: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.warning};
+        color: ${theme.colors.base["warning-foreground"]};
         
         svg {
             fill: ${theme.colors.base["warning-foreground"]};
@@ -51,6 +61,7 @@ const AvatarColor = {
     `,
     danger: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.danger};
+        color: ${theme.colors.base["danger-foreground"]};
         
         svg {
             fill: ${theme.colors.base["danger-foreground"]};
@@ -58,6 +69,7 @@ const AvatarColor = {
     `,
     default: (theme: ThemeType) => css`
         background-color: ${theme.colors.base.default};
+        color: ${theme.colors.base["default-foreground"]};
         
         svg {
             fill: ${theme.colors.base["default-foreground"]};
@@ -65,7 +77,7 @@ const AvatarColor = {
     `,
 }
 
-const AvatarRadius = {
+export const AvatarRadius = {
     none: () => css`
         border-radius: 0;
         
@@ -135,7 +147,7 @@ export const AvatarWrapper = styled.div<AvatarProps>`
         object-position: center;
     }
     
-    ${({ size }) => size && AvatarSize[size]}
+    ${({ size, theme }) => size && AvatarSize[size](theme)}
 
     ${({ color, theme }) => color && AvatarColor[color](theme)}
 

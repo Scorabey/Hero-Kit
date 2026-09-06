@@ -10,17 +10,25 @@ const meta: Meta<typeof AvatarGroup> = {
 export default meta;
 
 const avatars: AvatarListType = [
-    { src: undefined, id: "01" },
-    { src: undefined, id: "02" },
-    { src: undefined, id: "03" },
-    { src: undefined, id: "04" },
-    { src: undefined, id: "05" },
+    { variant: "icon", src: undefined, id: "01" },
+    { variant: "icon", src: undefined, id: "02" },
+    { variant: "icon", src: undefined, id: "03" },
+    { variant: "icon", src: undefined, id: "04" },
+    { variant: "icon", src: undefined, id: "06" },
+    { variant: "icon", src: undefined, id: "07" },
+    { variant: "icon", src: undefined, id: "08" },
+    { variant: "icon", src: undefined, id: "09" },
+    { variant: "icon", src: undefined, id: "10" },
+    { variant: "icon", src: undefined, id: "11" },
+    { variant: "icon", src: undefined, id: "12" },
 ]
 
 export const Default: StoryObj<typeof AvatarGroup> = {
-    render: () => {
-        return (
-            <AvatarGroup isBordered={false} radius={"full"} variant={"icon"} color={"default"} size={"sm"} avatarList={avatars}/>
-        )
+    args: {
+        visibleCount: 4,
+        avatarList: avatars,
+        color: "default",
+        radius: "md",
+        size: "lg",
     }
 };
