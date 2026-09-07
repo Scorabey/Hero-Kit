@@ -1,4 +1,4 @@
-import {Wrapper} from "./style.ts";
+import {Wrapper} from "./styles.ts";
 import {Avatar} from "../Avatar";
 import type { AvatarProps } from "../Avatar";
 
@@ -9,7 +9,7 @@ export interface AvatarGroupProps extends Omit<AvatarProps, "src"> {
     avatarList: AvatarListType;
 }
 
-export const AvatarGroup = ({ visibleCount = 4, avatarList, size, radius, color, ...rest}: AvatarGroupProps) => {
+export const AvatarGroup = ({ visibleCount = 4, avatarList, size = "md", radius = "md", color = "default", ...rest}: AvatarGroupProps) => {
     const extraElements = avatarList.length - visibleCount;
 
     return (
@@ -19,16 +19,23 @@ export const AvatarGroup = ({ visibleCount = 4, avatarList, size, radius, color,
             color={color}
             {...rest}
         >
-            {avatarList.slice(0, visibleCount).map((avatar) => (
-                <Avatar
-                    key={avatar.id}
-                    size={size}
-                    variant={avatar.variant}
-                    radius={radius}
-                    color={color}
-                />
+            {avatarList.slice(0, visibleCount).map((avatar, index) => (
+                <div
+                    className="border"
+                    style={{
+                        zIndex: index
+                    }}>
+                    <Avatar
+                        key={avatar.id}
+                        size={size}
+                        variant={avatar.variant}
+                        radius={radius}
+                        color={color}
+                        src={avatar.src}
+                    />
+                </div>
             ))}
-            {extraElements > 0 ? <div>+{extraElements}</div> : null}
+            {extraElements > 0 ? <div style={{zIndex: visibleCount}} className="border"><span>+{extraElements}</span></div> : null}
         </Wrapper>
     )
 }

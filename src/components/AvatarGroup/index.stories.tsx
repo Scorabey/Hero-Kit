@@ -10,17 +10,11 @@ const meta: Meta<typeof AvatarGroup> = {
 export default meta;
 
 const avatars: AvatarListType = [
-    { variant: "icon", src: undefined, id: "01" },
-    { variant: "icon", src: undefined, id: "02" },
-    { variant: "icon", src: undefined, id: "03" },
-    { variant: "icon", src: undefined, id: "04" },
-    { variant: "icon", src: undefined, id: "06" },
-    { variant: "icon", src: undefined, id: "07" },
-    { variant: "icon", src: undefined, id: "08" },
-    { variant: "icon", src: undefined, id: "09" },
-    { variant: "icon", src: undefined, id: "10" },
-    { variant: "icon", src: undefined, id: "11" },
-    { variant: "icon", src: undefined, id: "12" },
+    { variant: "icon", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "01" },
+    { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "02" },
+    { variant: "icon", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "03" },
+    { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "04" },
+    { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "05" },
 ]
 
 export const Default: StoryObj<typeof AvatarGroup> = {

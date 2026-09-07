@@ -9,6 +9,7 @@ export const AvatarSize = {
         padding: 0.21rem;
         font-size: ${theme.text.text_tiny.fontSize};
         line-height: ${theme.text.text_tiny.lineHeight};
+        box-sizing: border-box;
     `,
     md: (theme: ThemeType) => css`
         width: clamp(40px, 2.78vw, 40px);
@@ -16,6 +17,7 @@ export const AvatarSize = {
         padding: 0.25rem;
         font-size: ${theme.text.text_tiny.fontSize};
         line-height: ${theme.text.text_tiny.lineHeight};
+        box-sizing: border-box;
     `,
     lg: (theme: ThemeType) => css`
         width: clamp(56px, 3.89vw, 56px);
@@ -23,6 +25,7 @@ export const AvatarSize = {
         padding: 0.35rem;
         font-size: ${theme.text.text_small.fontSize};
         line-height: ${theme.text.text_small.lineHeight};
+        box-sizing: border-box;
     `,
 }
 
@@ -120,6 +123,7 @@ const AvatarVariant = {
         
     `,
     image: () => css`
+        background: transparent;
         padding: 0;
     `
 }
@@ -131,6 +135,7 @@ export const AvatarWrapper = styled.div<AvatarProps>`
     border-width: ${({isBordered}) => isBordered ? 4 : 0}px;
     border-style: solid;
     border-color: ${({theme}) => theme.colors.base.default};
+    overflow: hidden;
     
     svg {
         width: 100%;
