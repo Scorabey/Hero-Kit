@@ -9,3 +9,9 @@ export type { AlertProps } from "./Alert";
 
 export { AlertAPI } from './AlertAPI/AlertAPI.ts'
 export { AlertContainer } from './AlertAPI/AlertContainer.tsx'
+
+export { Avatar } from "./Avatar";
+export type { AvatarProps } from "./Avatar";
+
+export { AvatarGroup } from "./AvatarGroup";
+export type { AvatarGroupProps } from "./AvatarGroup";

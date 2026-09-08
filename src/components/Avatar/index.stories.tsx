@@ -14,6 +14,8 @@ export const Default: StoryObj<typeof Avatar> = {
         size: 'md',
         radius: 'none',
         color: 'default',
+        variant: 'icon',
+        src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg",
     },
 };
 
@@ -23,7 +25,7 @@ export const Image: StoryObj<typeof Avatar> = {
         radius: 'none',
         color: 'default',
         variant: 'image',
-        src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQXGmUeiHE2SfkUtPJSQDj2Z5MIA3ai9bbG9bPRp-z-qQ&s=10",
+        src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg",
     },
 };
 
