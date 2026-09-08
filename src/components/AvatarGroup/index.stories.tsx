@@ -15,6 +15,7 @@ const avatars: AvatarListType = [
     { variant: "icon", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "03" },
     { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "04" },
     { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "05" },
+    { variant: "image", src: "https://i.pinimg.com/1200x/54/14/5e/54145e44e946d42c4556ca0485b9fb29.jpg", id: "06" },
 ]
 
 export const Default: StoryObj<typeof AvatarGroup> = {
@@ -24,5 +25,6 @@ export const Default: StoryObj<typeof AvatarGroup> = {
         color: "default",
         radius: "md",
         size: "lg",
+        isGrid: true,
     }
 };

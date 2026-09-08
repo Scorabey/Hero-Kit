@@ -6,17 +6,19 @@ export type AvatarListType = Omit<AvatarProps, "size" | "color" | "radius" | "is
 
 export interface AvatarGroupProps extends Omit<AvatarProps, "src"> {
     visibleCount?: 4 | 5;
+    isGrid: boolean;
     avatarList: AvatarListType;
 }
 
-export const AvatarGroup = ({ visibleCount = 4, avatarList, size = "md", radius = "md", color = "default", ...rest}: AvatarGroupProps) => {
+export const AvatarGroup = ({ visibleCount = 4, isGrid = false, avatarList, size = "md", radius = "md", color = "default", ...rest}: AvatarGroupProps) => {
     const extraElements = avatarList.length - visibleCount;
 
     return (
         <Wrapper
-            size={size}
-            radius={radius}
-            color={color}
+            $size={size}
+            $radius={radius}
+            $color={color}
+            $isGrid={isGrid}
             {...rest}
         >
             {avatarList.slice(0, visibleCount).map((avatar, index) => (
