@@ -30,16 +30,16 @@ export const rawTheme = {
 
 export type RawThemeType = typeof rawTheme;
 type ColorPair = { light: string; dark: string };
-type ColorGroup = Record<string, string>;
-type ResolveTheme<T> = T extends { light: infer L; dark: infer D }
-  ? L extends ColorGroup
-    ? D extends ColorGroup
-      ? L
-      : never
-    : never
-  : T extends object
-    ? { [K in keyof T]: ResolveTheme<T[K]> }
-    : T;
+type ResolveTheme<T> =
+    T extends { light: infer L; dark: infer D }
+        ? L extends object
+            ? D extends object
+                ? L
+                : never
+            : T
+        : T extends object
+            ? { [K in keyof T]: ResolveTheme<T[K]> }
+            : T;
 
 export type ThemeType = ResolveTheme<RawThemeType>;
 export type ThemeMode = "light" | "dark";

@@ -1,213 +1,56 @@
-type ShadowThemeName =
-    | "light"
-    | "blue"
-    | "purple"
-    | "green"
-    | "orange"
-    | "red";
-
-type ShadowLayer = {
-  x: number;
-  y: number;
-  blur: number;
-  spread: number;
-  color: Record<ShadowThemeName, string>;
-};
-
-type ShadowToken = {
-  layers: ShadowLayer[];
-};
-
-export const shadow: Record<string, ShadowToken> = {
-  shadowSm: {
-    layers: [
-      {
-        x: 0,
-        y: 1,
-        blur: 2,
-        spread: 0,
-        color: {
-          light: "rgba(0, 0, 0, 0.05)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-    ],
+export const shadow = {
+  light: {
+    shadowSm: `0px 1px 2px 0px rgba(0, 0, 0, 0.05)`,
+    shadow: `0px 1px 3px 0px rgba(0, 0, 0, 0.1), 0px 1px 2px -1px rgba(0, 0, 0, 0.1)`,
+    shadowMd: `0px 4px 6px -1px rgba(0, 0, 0, 0.1), 0px 2px 4px -2px rgba(0, 0, 0, 0.1)`,
+    shadowLg: `0px 10px 15px -3px rgba(0, 0, 0, 0.1), 0px 4px 6px -4px rgba(0, 0, 0, 0.1)`,
+    shadowXl: `0px 20px 25px -5px rgba(0, 0, 0, 0.1), 0px 8px 10px -6px rgba(0, 0, 0, 0.1)`,
+    shadow2Xl: `0px 25px 50px -12px rgba(0, 0, 0, 0.25)`,
+    shadowInner: `0px 2px 4px 0px rgba(0, 0, 0, 0.05)`,
   },
-
-  shadow: {
-    layers: [
-      {
-        x: 0,
-        y: 1,
-        blur: 3,
-        spread: 0,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-      {
-        x: 0,
-        y: 1,
-        blur: 2,
-        spread: -1,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-    ],
+  blue: {
+    shadowSm: `0px 1px 2px 0px #0070F366`,
+    shadow: `0px 1px 3px 0px #0070F366, 0px 1px 2px -1px #0070F366`,
+    shadowMd: `0px 4px 6px -1px #0070F366, 0px 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    shadowLg: `0px 10px 15px -3px #0070F366, 0px 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    shadowXl: `0px 20px 25px -5px #0070F333, 0px 10px 10px -5px #0070F366`,
+    shadow2Xl: `0px 25px 50px -12px #0070F366`,
+    shadowInner: `0px 2px 4px 0px #0070F366`,
   },
-
-  shadowMd: {
-    layers: [
-      {
-        x: 0,
-        y: 4,
-        blur: 6,
-        spread: -1,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-      {
-        // NOTE: original tokens had light using spread -2, colored themes using spread -1
-        x: 0,
-        y: 2,
-        blur: 4,
-        spread: -2,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "rgba(0, 0, 0, 0.06)",
-          purple: "rgba(0, 0, 0, 0.06)",
-          green: "rgba(0, 0, 0, 0.06)",
-          orange: "rgba(0, 0, 0, 0.06)",
-          red: "rgba(0, 0, 0, 0.06)",
-        },
-      },
-    ],
+  purple: {
+    shadowSm: `0px 1px 2px 0px #7828C866`,
+    shadow: `0px 1px 3px 0px #7828C866, 0px 1px 2px -1px #7828C866`,
+    shadowMd: `0px 4px 6px -1px #7828C866, 0px 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    shadowLg: `0px 10px 15px -3px #7828C866, 0px 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    shadowXl: `0px 20px 25px -5px #7828C833, 0px 10px 10px -5px #7828C866`,
+    shadow2Xl: `0px 25px 50px -12px #7828C866`,
+    shadowInner: `0px 2px 4px 0px #7828C866`,
   },
-
-  shadowLg: {
-    layers: [
-      {
-        x: 0,
-        y: 10,
-        blur: 15,
-        spread: -3,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-      {
-        // NOTE: original tokens had light using spread -4, colored themes using spread -2
-        x: 0,
-        y: 4,
-        blur: 6,
-        spread: -4,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "rgba(0, 0, 0, 0.05)",
-          purple: "rgba(0, 0, 0, 0.05)",
-          green: "rgba(0, 0, 0, 0.05)",
-          orange: "rgba(0, 0, 0, 0.05)",
-          red: "rgba(0, 0, 0, 0.05)",
-        },
-      },
-    ],
+  green: {
+    shadowSm: `0px 1px 2px 0px #17C96466`,
+    shadow: `0px 1px 3px 0px #17C96466, 0px 1px 2px -1px #17C96466`,
+    shadowMd: `0px 4px 6px -1px #17C96466, 0px 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    shadowLg: `0px 10px 15px -3px #17C96466, 0px 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    shadowXl: `0px 20px 25px -5px #17C96433, 0px 10px 10px -5px #17C96466`,
+    shadow2Xl: `0px 25px 50px -12px #17C96466`,
+    shadowInner: `0px 2px 4px 0px #17C96466`,
   },
-
-  shadowXl: {
-    layers: [
-      {
-        x: 0,
-        y: 20,
-        blur: 25,
-        spread: -5,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F333",
-          purple: "#7828C833",
-          green: "#17C96433",
-          orange: "#F5A52433",
-          red: "#F3126033",
-        },
-      },
-      {
-        // NOTE: original tokens had light using y:8/blur:10/spread:-6, colored themes using y:10/blur:10/spread:-5
-        x: 0,
-        y: 8,
-        blur: 10,
-        spread: -6,
-        color: {
-          light: "rgba(0, 0, 0, 0.1)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-    ],
+  orange: {
+    shadowSm: `0px 1px 2px 0px #F5A52466`,
+    shadow: `0px 1px 3px 0px #F5A52466, 0px 1px 2px -1px #F5A52466`,
+    shadowMd: `0px 4px 6px -1px #F5A52466, 0px 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    shadowLg: `0px 10px 15px -3px #F5A52466, 0px 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    shadowXl: `0px 20px 25px -5px #F5A52433, 0px 10px 10px -5px #F5A52466`,
+    shadow2Xl: `0px 25px 50px -12px #F5A52466`,
+    shadowInner: `0px 2px 4px 0px #F5A52466`,
   },
-
-  shadow2Xl: {
-    layers: [
-      {
-        x: 0,
-        y: 25,
-        blur: 50,
-        spread: -12,
-        color: {
-          light: "rgba(0, 0, 0, 0.25)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-    ],
-  },
-
-  shadowInner: {
-    layers: [
-      {
-        x: 0,
-        y: 2,
-        blur: 4,
-        spread: 0,
-        color: {
-          light: "rgba(0, 0, 0, 0.05)",
-          blue: "#0070F366",
-          purple: "#7828C866",
-          green: "#17C96466",
-          orange: "#F5A52466",
-          red: "#F3126066",
-        },
-      },
-    ],
+  red: {
+    shadowSm: `0px 1px 2px 0px #F3126066`,
+    shadow: `0px 1px 3px 0px #F3126066, 0px 1px 2px -1px #F3126066`,
+    shadowMd: `0px 4px 6px -1px #F3126066, 0px 2px 4px -1px rgba(0, 0, 0, 0.06)`,
+    shadowLg: `0px 10px 15px -3px #F3126066, 0px 4px 6px -2px rgba(0, 0, 0, 0.05)`,
+    shadowXl: `0px 20px 25px -5px #F3126033, 0px 10px 10px -5px #F3126066`,
+    shadow2Xl: `0px 25px 50px -12px #F3126066`,
+    shadowInner: `0px 2px 4px 0px #F3126066`,
   },
 };
