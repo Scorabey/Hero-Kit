@@ -64,6 +64,7 @@ export const BadgeWrapper = styled.span<BadgeProps>`
     border-style: solid;
     border-width: ${({ disableOutline }) => disableOutline ? 2 : 0}px;
     border-color: ${({ disableOutline, variant, theme }) => disableOutline ? variant === "faded" ? theme.colors.base.default : theme.colors.layout.background : theme.colors.layout.background};
+    box-sizing: border-box;
     
     ${({ size, theme }) => size && styledSize[size](theme)}
     
