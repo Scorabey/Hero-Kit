@@ -15,3 +15,6 @@ export type { AvatarProps } from "./Avatar";
 
 export { AvatarGroup } from "./AvatarGroup";
 export type { AvatarGroupProps } from "./AvatarGroup";
+
+export { Badge } from "./Badge";
+export type { BadgeProps } from "./Badge";

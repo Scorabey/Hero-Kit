@@ -1,18 +1,14 @@
 import { type HTMLAttributes } from "react";
 import { AlertClose, AlertIcon } from "../../icons";
 import { AlertContent, AlertWrapper } from "./styles.ts";
-
-export type AlertColor =
-  "default" | "primary" | "secondary" | "success" | "warning" | "danger";
-
-export type AlertRadiusSize = "none" | "sm" | "md" | "lg" | "full";
+import type {ColorsType, RadiusType} from "../../types";
 
 export interface AlertProps extends HTMLAttributes<HTMLDivElement> {
   title: string;
   message: string;
   duration?: number;
-  color?: AlertColor;
-  radiusSize?: AlertRadiusSize;
+  color?: ColorsType;
+  radiusSize?: RadiusType;
   onClose?: () => void;
 }
 

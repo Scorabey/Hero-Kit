@@ -4,8 +4,9 @@ import {
   AccordionInlineHr,
   AccordionPadding,
 } from "./styles.ts";
+import type {VariantType} from "../../types";
 
-export type AccordianVariant = "default" | "shadow" | "bordered" | "splitted";
+export type AccordianVariant = Omit<VariantType, 'bordered' | 'shadow'> | "default" | "splitted";
 
 export interface AccordionListProps extends Omit<
   HTMLAttributes<HTMLDivElement>,

@@ -1,16 +1,13 @@
 import type {HTMLAttributes} from "react";
 import {BadgeWrapper} from "./styles.ts";
+import type {ColorsType, SizeType, VariantType} from "../../types";
 
-export type Size = 'sm' | 'md' | 'lg';
-
-export type Color = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
-
-export type BadgeVariant = 'solid' | 'flat' | 'faded' | 'shadow';
+export type BadgeVariant = Omit<VariantType, 'bordered' | 'light' | 'ghost'>;
 
 export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
     count: number;
-    size?: Size;
-    color?: Color;
+    size?: SizeType;
+    color?: ColorsType;
     variant?: BadgeVariant;
     disableOutline?: boolean;
 }

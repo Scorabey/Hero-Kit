@@ -1,6 +1,6 @@
 import styled, { css, keyframes } from "styled-components";
-import type { AlertColor, AlertRadiusSize } from "./index.tsx";
 import type { ThemeType } from "../../variables/theme.ts";
+import type {ColorsType, RadiusType} from "../../types";
 
 const appearance = keyframes`
     from {
@@ -161,8 +161,8 @@ const RadiusVariants = {
 };
 
 export const AlertWrapper = styled.div<{
-  $color: AlertColor;
-  $radiusSize: AlertRadiusSize;
+  $color: ColorsType;
+  $radiusSize: RadiusType;
 }>`
   display: inline-flex;
   flex-direction: row;
@@ -202,7 +202,7 @@ export const AlertWrapper = styled.div<{
   ${({ theme, $radiusSize }) => RadiusVariants[$radiusSize](theme)}
 `;
 
-export const AlertContent = styled.div<{ $color: AlertColor }>`
+export const AlertContent = styled.div<{ $color: ColorsType }>`
   display: inline-flex;
   flex-direction: row;
   gap: 16px;
