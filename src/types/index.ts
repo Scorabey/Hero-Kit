@@ -4,7 +4,7 @@ export type RadiusType = 'none' | 'sm' | 'md' | 'lg' | 'full';
 
 export type ColorsType = 'default' | 'primary' | 'secondary' | 'success' | 'warning' | 'danger';
 
-export type VariantType = 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'ghost' | 'shadow';
+export type VariantType = 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost';
 
 // This is an array of data that accepts argTypes > options
 export const SizeStory: SizeType[] = ['sm', 'md', 'lg'] as const;
@@ -13,7 +13,7 @@ export const RadiusStory: RadiusType[] = ['none', 'sm', 'md', 'lg', 'full'] as c
 
 export const ColorStory: ColorsType[] = ['default', 'primary', 'secondary', 'success', 'warning', 'danger'] as const;
 
-export const VariantStory: VariantType[] = ['solid', 'bordered', 'light', 'flat', 'faded', 'ghost', 'shadow'];
+export const VariantStory: VariantType[] = ['solid', 'bordered', 'light', 'flat', 'faded', 'ghost', 'shadow'] as const;
 
 // Iterates through the object array and removes
 // those objects that are not in the exclude statement,

@@ -10,7 +10,7 @@ interface ButtonProps extends HTMLAttributes<HTMLButtonElement> {
     variant?: VariantType;
 }
 
-export const Button = ({ children, size, radius, colors, variant, ...props }: ButtonProps) => {
+export const Button = ({ children = "", size = "sm", radius = "sm", colors = "default", variant = "solid", ...props }: ButtonProps) => {
     return (
         <ButtonStyle
             $size={size}

@@ -1,5 +1,6 @@
 import {Button} from "./index";
 import type { Meta, StoryObj } from "@storybook/react-vite";
+import {AlertInfo} from "../../icons";
 
 const meta: Meta<typeof Button> = {
     title: "Components/Button",
@@ -27,7 +28,7 @@ const meta: Meta<typeof Button> = {
         colors: 'default',
         radius: 'sm',
         variant: 'shadow',
-        children: 'Click!',
+        children: 'Button',
     },
     // tags: ["autodocs"],
 };
@@ -38,6 +39,16 @@ export const Default: StoryObj<typeof Button> = {
     render: (args) => {
         return (
             <Button {...args} />
+        )
+    }
+};
+
+export const Icon: StoryObj<typeof Button> = {
+    render: (args) => {
+        return (
+            <Button {...args}>
+                <AlertInfo width={14} height={14}/>
+            </Button>
         )
     }
 };
