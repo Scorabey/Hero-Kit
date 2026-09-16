@@ -40,7 +40,6 @@ export const AccordionItem = styled.div<{ $variant: AccordianVariant }>`
       padding-inline: 8px;
       width: clamp(240px, 36vw, 520px);
       height: fit-content;
-      font-family: Inter, sans-serif;
     `;
   }}
 

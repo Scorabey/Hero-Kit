@@ -37,7 +37,7 @@ export default meta;
 export const Default: StoryObj<typeof Button> = {
     render: (args) => {
         return (
-            <Button {...args}/>
+            <Button {...args} />
         )
     }
 };
