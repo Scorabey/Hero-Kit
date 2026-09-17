@@ -1,4 +1,4 @@
-import styled, {css} from "styled-components";
+import styled, {css, keyframes} from "styled-components";
 import type {ColorsType, RadiusType, SizeType, VariantType} from "../../types";
 import type {ThemeType} from "../../variables/theme.ts";
 
@@ -7,7 +7,17 @@ interface ButtonProps {
     $radius: RadiusType;
     $colors: ColorsType;
     $variant: VariantType;
+    $isLoading: boolean;
 }
+
+const rotate = keyframes`
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+`;
 
 const RadiusSelector = {
     none: (theme: ThemeType) => css`
@@ -224,14 +234,23 @@ export const ButtonStyle = styled.button<ButtonProps>`
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    gap: 0.5rem;
     border-style: solid;
     border-width: 0;
     border-color: transparent;
-    cursor: pointer;
+    cursor: ${({ $isLoading }) => $isLoading ? 'progress' : 'pointer'};
     box-sizing: border-box;
     
-    &:active {
+    .spinner {
+        animation: ${rotate} 1s infinite linear;
+    }
+
+    &:not(:disabled):active {
         transform: scale(1.025);
+    }
+    
+    &:disabled {
+        cursor: ${({ $isLoading }) => $isLoading ? 'progress' : 'not-allowed'};
     }
     
     ${({ $size, theme }) => $size && SizeSelector[$size](theme)}

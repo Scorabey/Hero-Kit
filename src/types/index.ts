@@ -6,6 +6,12 @@ export type ColorsType = 'default' | 'primary' | 'secondary' | 'success' | 'warn
 
 export type VariantType = 'solid' | 'bordered' | 'light' | 'flat' | 'faded' | 'shadow' | 'ghost';
 
+export interface Icon {
+    className?: string;
+    height?: number;
+    width?: number;
+}
+
 // This is an array of data that accepts argTypes > options
 export const SizeStory: SizeType[] = ['sm', 'md', 'lg'] as const;
 

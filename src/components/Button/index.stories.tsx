@@ -22,6 +22,9 @@ const meta: Meta<typeof Button> = {
             options: ['solid', 'bordered', 'light', 'flat', 'faded', 'ghost', 'shadow'],
             control: { type: 'select' }
         },
+        isLoading: {
+            control: { type: 'boolean' }
+        }
     },
     args: {
         size: 'md',
@@ -29,6 +32,7 @@ const meta: Meta<typeof Button> = {
         radius: 'sm',
         variant: 'shadow',
         children: 'Button',
+        isLoading: false
     },
     // tags: ["autodocs"],
 };
