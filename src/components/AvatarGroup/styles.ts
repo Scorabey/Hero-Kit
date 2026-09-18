@@ -1,13 +1,13 @@
 import styled, {css} from "styled-components";
 import {AvatarColor, AvatarRadius, AvatarSize} from "../Avatar/styles.ts";
 import type {ThemeType} from "../../variables/theme.ts";
-import type {AvatarColorType} from "../Avatar";
+import type {ColorsType, RadiusType, SizeType} from "../../types";
 
 export interface AvatarGroupStyles {
-    $size: "sm" | "md" | "lg";
-    $radius: "none" | "sm" | "md" | "lg" | "full";
+    $size: SizeType;
+    $radius: RadiusType;
     $isGrid: boolean;
-    $color: AvatarColorType;
+    $color: ColorsType;
 }
 
 const BorderColor = {

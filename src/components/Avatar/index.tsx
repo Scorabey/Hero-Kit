@@ -1,13 +1,12 @@
 import {AvatarWrapper} from "./styles.ts";
 import {AvatarIcon} from "../../icons/Avatar/Avatar.tsx";
 import type {HTMLAttributes} from "react";
-
-export type AvatarColorType = "primary" | "secondary" | "success" | "warning" | "danger" | "default"
+import type {ColorsType, RadiusType, SizeType} from "../../types";
 
 export interface AvatarProps extends HTMLAttributes<HTMLDivElement> {
-    size?: "sm" | "md" | "lg";
-    radius?: "none" | "sm" | "md" | "lg" | "full";
-    color?: AvatarColorType;
+    size?: SizeType;
+    radius?: RadiusType;
+    color?: ColorsType;
     variant?: "icon" | "image"
     isBordered?: boolean
     src?: string;
